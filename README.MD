@@ -1,57 +1,48 @@
-# Learning React - Day 02
+# Learning React - Day 03
 
-## Bundlers
- - A bundler is a development tool that combines many JavaScript code files into a single one that is production-ready loadable in the browser.
- - A fantastic feature of a bundler is that it generates a dependency graph as it traverses your first code files.
- - This implies that beginning with the entry point you specified, the module bundler keeps track of both your source files’ dependencies and third-party dependencies.
- - This dependency graph guarantees that all source and associated code files are kept up to date and error-free.
-### Bundler examples - Vite, Parcel, and Webpack
+## What is JSX ?
+ - JSX stands for Javascript XML and it is a very useful tool for React developers.
+ - JSX is an extension of the JavaScript language which provides a way to structure component rendering using syntax similar to HTML.
 
-## Parcel - Features
- - Hot Module Replacing
- - Reload changes automatically on browser
- - Uses File Watcher algorithm (C++)
- - Bundling
- - Minifying
- - Cleaning our code
- - Dev production build
- - Uses super fast build algorithm
- - Image optimization
- - Caching while development
- - Compression
- - Compatible with older version of browsers
- - Https on dev 
- - Manages port numbers
- - Uses consistent hashing algorithm
- - Zero configuration
- - Create a server
-
-## package.json VS package-lock.json
-- Manages Transitive dependencies
-
- |package.json  | package-lock.json|
- |------------- | -------------|
-|It contains basic information about the project.  | It describes the exact tree that was generated to allow subsequent installs to have the identical tree.|
-|It is mandatory for every project.  | It is automatically generated for those operations where npm modifies either node_modules tree or package.json.|
-|It records important metadata about the project. | It allows future devs to install the same dependencies in the project.|
-|It contains information such as name, description, author, script, and dependencies. | It contains the name, dependencies, and locked version of the project. |
-
-
-### To install Parcel, use below command
- 
+## Superpowers of JSX 
+ - JSX gives us the ability to write HTML elements in Javascript and place them in the DOM by converting the HTML tags into React elements without the need for other methods like createElement() or appendChild().
+ - This combination of Javascript and HTML leads to having more powerful applications with boosted performance.
  ```
- npm install -D parcel 
- 
+ const element = <h2>This is the JSX element!</h1>
+ ReactDOM.render(element,document.getElementById('root'));
  ```
- - Where -D stands for dev dependency, so it will be used in development environment.
-
- ### To Execute Parcel
-
+ - This JSX code snippet is an example of what it would take to output an `<h2>` of “This is the JSX element!” to your DOM using JSX syntax.
  ```
- npx parcel index.html
-
+ const element = React.createElement('h1',{},'This is the JSX element!');
+ ReactDOM.render(element,document.getElementById('root'));
  ```
+ - This second code snippet is an example of how to do the same exact thing as the first but without the use of JSX.
+ - As you can see, and most people would agree, the first example using JSX is much cleaner and clearer code that will be easier to read, edit and debug when the time comes.
+ - As you can see, and most people would agree, the first example using JSX is much cleaner and clearer code that will be easier to read, edit and debug when the time comes.
+ - You can also represent multiple lines of HTML with JSX. However, there must always be one top level element with the rest of your code nested inside.
+ ```
+ const element = (
+    <ul>
+       <li>Ramesh</li>
+       <li>Shreedevi</li>
+       <li>Pratham</li>
+       <li>Pratiksha</li>
+    </ul>
+ )
+ ```
+ - React is aware of and embraces the fact that UI logic is coupled with rendering logic when referring to things such as how the state changes over time, how the data is displayed and how events are handled.
+ - What makes React unique and powerful is the fact that they utilize something called separating “concerns” by coupling units inside components that contain both markup and logic, rather than putting them in separate files.
+  - Another popular use case with JSX is its ability to provide a range of element attributes designed to mirror those provided by HTML.
+  - Custom attributes can be passed to the component and all attributes will be received by the component as props.
+  - Custom attributes can be passed to the component and all attributes will be received by the component as props.
+  - Also, JavaScript expressions can be used inside JSX with curly brackets `{}`:
+  ```
+  <h2>{12+5}</h2>
+  ```
+**Babel** - How does the browser understand and read JSX? They don’t. React developers typically utilize **Babel**, which is a popular, free and open-source ***Javascript transpiler*** that transforms your JSX into regular Javascript objects first before passing it to the browser.
 
+## What is Browserslist?
+ Browserslist is a tool that allows specifying which browsers should be supported in your frontend app by specifying "queries" in a config file. It's used by frameworks/libraries such as React, Angular and Vue, but it's not limited to them.
  
 
 

@@ -1,17 +1,33 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 
-const elementH1 = React.createElement('h1', {
-    'id': 'heading-1'
-}, 'Namaste React');
-const heading1 = React.createElement('h1', 
-{ id: 'heading-1' },
- 'Heading 1');
-const heading2 = React.createElement('h2',
- { id: 'heading-2' },
-  'Heading 2');
-const container = React.createElement('div',
- { id: 'container' },
-  [heading1, heading2]);
+const Relement = <h1>Heading 2</h1>;
+
+// 1st Way of Functional component
+const Rcomponet = ()=>{
+  return <div>
+  <h2>This is from Rcomponet</h2>
+</div>
+};
+
+// 2nd Way of Functional component
+const RcomponetAnotherWay = ()=>(
+  <div>
+    <h2>This is from RcomponetAnotherWay</h2>
+  </div>
+);
+
+
+const AppLayout = ()=>{
+  return (
+    <div>
+      {Relement}
+      <Rcomponet />
+      <RcomponetAnotherWay />
+      {Rcomponet()}
+      <h2>App Component</h2>  
+    </div>
+  )
+}
 const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(container);
+root.render(<AppLayout/>);
